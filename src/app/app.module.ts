@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent, NavBarComponent } from './_components';
+import { FormComponent, NavBarComponent, ResetableInputComponent } from './_components';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    NavBarComponent
+    NavBarComponent,
+    ResetableInputComponent
   ],
   imports: [
     BrowserModule,
