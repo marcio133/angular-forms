@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask'
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent, NavBarComponent, ResetableInputComponent } from './_components';
+import {
+  FormComponent, NavBarComponent, ResetableInputComponent, SelectInputComponent,
+  OptionsModalComponent
+} from './_components';
+import { UtilsService, FirebaseService } from './_services';
+
 
 // export const options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -15,16 +21,25 @@ import { FormComponent, NavBarComponent, ResetableInputComponent } from './_comp
     AppComponent,
     FormComponent,
     NavBarComponent,
-    ResetableInputComponent
+    ResetableInputComponent,
+    SelectInputComponent,
+    OptionsModalComponent
+  ],
+  entryComponents: [
+    OptionsModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    UtilsService,
+    FirebaseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

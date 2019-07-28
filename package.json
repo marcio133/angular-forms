@@ -22,6 +22,7 @@
     "bootstrap": "^4.3.1",
     "ng2-currency-mask": "^5.3.1",
     "ng2-input-mask": "0.0.7",
+    "ngx-bootstrap": "^5.1.0",
     "ngx-mask": "^8.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
