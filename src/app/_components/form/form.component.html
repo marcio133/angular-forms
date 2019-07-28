@@ -1,24 +1,28 @@
 <section class="container">
-  <form>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Cost date</label>
-        <input type="text" class="form-control" id="inputEmail4">
+        <input type="text" [dropSpecialCharacters]="false" mask="00/00/0000" formControlName="cost"
+          class="form-control">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Cost value</label>
-        <input type="text" class="form-control" id="inputPassword4">
+        <input type="text" #someInput (keyup)="handleValue()" (click)="handleValue()" formControlName="value"
+          currencyMask class="form-control">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col">
         <label for="inputEmail4">Cost category</label>
-        <input type="text" class="form-control" id="inputEmail4" placeholder="Others">
+        <input type="text" class="form-control" placeholder="Others">
       </div>
     </div>
-    <app-resetable-input></app-resetable-input>
-    <app-resetable-input></app-resetable-input>
-    <app-resetable-input></app-resetable-input>
+    <app-resetable-input [parentForm]="profileForm" [control]="'description'" [labelName]="'Description of cost'">
+    </app-resetable-input>
+    <app-resetable-input [parentForm]="profileForm" [control]="'client'" [labelName]="'Client'"></app-resetable-input>
+    <app-resetable-input [parentForm]="profileForm" [control]="'job'" [labelName]="'Job'"></app-resetable-input>
+    <app-resetable-input [parentForm]="profileForm" [control]="'notes'" [labelName]="'Notes'"></app-resetable-input>
     <button type="submit" class="btn btn-info">Salvar</button>
   </form>
 </section>
