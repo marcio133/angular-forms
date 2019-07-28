@@ -18,9 +18,6 @@ export class OptionsModalComponent implements OnInit {
 
   setValue(option) {
     this.selectEvent.emit(option);
-    console.log('====================================');
-    console.log(option);
-    console.log('====================================');
     this.bsModalRef.hide();
   }
 

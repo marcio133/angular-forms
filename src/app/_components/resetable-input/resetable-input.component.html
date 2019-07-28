@@ -4,6 +4,6 @@
     <input type="text" class="form-control" [formControlName]="control" [placeholder]="placeholder">
   </div>
   <div class="col-auto">
-    <button class="btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+    <button type="button" (click)="reset()" class="btn-outline-danger"><i class="far fa-trash-alt"></i></button>
   </div>
 </div>

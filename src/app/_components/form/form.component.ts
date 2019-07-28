@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { categorys, currencies } from '../../_models/consts';
 import { UtilsService } from 'src/app/_services/utils.service';
+import { FirebaseService } from 'src/app/_services/firebase.service';
+import Cost from 'src/app/_models/Cost';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -11,13 +13,13 @@ export class FormComponent implements OnInit {
   costForm: FormGroup;
   categorys = categorys;
   currencies = currencies;
+  loading: boolean;
   @ViewChild('someInput', { read: ElementRef, static: true }) someInput: ElementRef;
 
-  constructor(private utilsService: UtilsService) { }
+  constructor(private utilsService: UtilsService, private fireService: FirebaseService) { }
 
   ngOnInit() {
     this.createForm();
-
   }
 
   createForm() {
@@ -38,21 +40,20 @@ export class FormComponent implements OnInit {
     this.costForm.get('date').setValue(todayDate);
 
     this.configCurrency();
+    this.updateDate();
   }
 
-  onSubmit() {
-    console.log('====================================');
-    console.log(this.costForm.value);
-    console.log('====================================');
+  async onSubmit() {
+    this.loading = true;
+    const res = await this.fireService.createCost(this.costForm.value as Cost);
+    console.log(res);
+    this.loading = false;
+
   }
 
   configCurrency() {
     var locale = window.navigator.language || 'en_US';
     this.costForm.get('currency').setValue(this.currencies[locale].symbol);
-  }
-
-  get prefix() {
-    return this.costForm.get('currency').value
   }
 
   updateDate() {
@@ -67,6 +68,10 @@ export class FormComponent implements OnInit {
 
   handleValue() {
     this.someInput.nativeElement.setSelectionRange(-1, -1);
+  }
+
+  get prefix() {
+    return this.costForm.get('currency').value
   }
 
 }

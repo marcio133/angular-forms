@@ -8,16 +8,17 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ResetableInputComponent implements OnChanges {
   @Input() parentForm: FormGroup;
-  @Input() control: String;
+  @Input() control: string;
   @Input() labelName: String;
   @Input() placeholder?: String = 'Optional';
 
   constructor() { }
 
   ngOnChanges(): void {
-    // console.log('====================================');
-    // console.log(this.parentForm, this.control);
-    // console.log('====================================');
+  }
+
+  reset() {
+    this.parentForm.get(this.control).reset();
   }
 
 }

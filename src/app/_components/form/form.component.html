@@ -19,6 +19,8 @@
     <app-resetable-input [parentForm]="costForm" [control]="'client'" [labelName]="'Client'"></app-resetable-input>
     <app-resetable-input [parentForm]="costForm" [control]="'job'" [labelName]="'Job'"></app-resetable-input>
     <app-resetable-input [parentForm]="costForm" [control]="'notes'" [labelName]="'Notes'"></app-resetable-input>
-    <button type="submit" class="btn btn-info">Salvar</button>
+    <button type="submit" class="btn btn-info" [disabled]="costForm.invalid">
+      <app-loader *ngIf="loading" [width]="'20'" [height]="'20'"></app-loader> Salvar
+    </button>
   </form>
 </section>
