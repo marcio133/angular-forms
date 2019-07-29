@@ -1,0 +1,24 @@
+$button-color: #4AC2FF;
+$button-radius: 10px;
+.btn-primary {
+  border-radius: $button-radius;
+  border: 2px solid white;
+  background-color: $button-color;
+  color: white;
+  &:disabled, &:active, &:focus, &:not(:disabled):not(.disabled):active{
+    border-radius: $button-radius;
+    border: 2px solid white;
+    background-color: $button-color;
+    color: white;
+    box-shadow: none;
+  }
+  &:hover:enabled {
+    color: $button-color;
+    background: white;
+    border-color: $button-color;
+  }
+}
+
+.btn {
+  padding: 10px 45px;
+}

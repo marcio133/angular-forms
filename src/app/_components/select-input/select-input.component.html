@@ -1,7 +1,7 @@
-<div class="form-row" [formGroup]="parentForm">
+<div class="form-row card-line" [formGroup]="parentForm">
   <div class="form-group col">
-    <label>{{labelName}}</label>
-    <input type="text" class="form-control" [formControlName]="control" [placeholder]="placeholder"
+    <label class="label-form">{{labelName}}</label>
+    <input type="text" class="form-control form-control-select" [formControlName]="control" [placeholder]="placeholder"
       (click)="openOptions($event)">
   </div>
 </div>

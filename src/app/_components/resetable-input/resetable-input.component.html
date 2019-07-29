@@ -1,9 +1,9 @@
-<div class="form-row" [formGroup]="parentForm">
+<div class="form-row card-line" [formGroup]="parentForm">
   <div class="form-group col">
-    <label>{{labelName}}</label>
+    <label class="label-form">{{labelName}}</label>
     <input type="text" class="form-control" [formControlName]="control" [placeholder]="placeholder">
   </div>
   <div class="col-auto">
-    <button type="button" (click)="reset()" class="btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+    <button type="button" (click)="reset()" class="reset-button"><i class="far fa-trash-alt"></i></button>
   </div>
 </div>

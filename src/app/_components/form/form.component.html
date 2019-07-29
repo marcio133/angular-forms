@@ -1,13 +1,13 @@
 <section class="container">
   <form [formGroup]="costForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Cost date</label>
+    <div class="form-row card-line">
+      <div class="form-group col">
+        <label class="label-form">Cost date</label>
         <input type="text" [dropSpecialCharacters]="false" (blur)="updateDate()" mask="00/00/0000"
           formControlName="date" class="form-control">
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Cost value</label>
+      <div class="form-group col">
+        <label class="label-form">Cost value</label>
         <input type="text" #someInput (keyup)="handleValue()" (click)="handleValue()" formControlName="value"
           currencyMask [options]="{ prefix: prefix }" class=" form-control">
       </div>
@@ -19,8 +19,12 @@
     <app-resetable-input [parentForm]="costForm" [control]="'client'" [labelName]="'Client'"></app-resetable-input>
     <app-resetable-input [parentForm]="costForm" [control]="'job'" [labelName]="'Job'"></app-resetable-input>
     <app-resetable-input [parentForm]="costForm" [control]="'notes'" [labelName]="'Notes'"></app-resetable-input>
-    <button type="submit" class="btn btn-info" [disabled]="costForm.invalid">
-      <app-loader *ngIf="loading" [width]="'20'" [height]="'20'"></app-loader> Salvar
-    </button>
+    <div class="form-row">
+      <div class="col text-center text-sm-right">
+        <button type="submit" class="btn btn-primary" [disabled]="costForm.invalid">
+          <app-loader *ngIf="loading" [width]="'20'" [height]="'20'"></app-loader> {{loading ? 'saving...' : 'save'}}
+        </button>
+      </div>
+    </div>
   </form>
 </section>

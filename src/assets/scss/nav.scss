@@ -1,0 +1,12 @@
+.navbar {
+  background-color: $secondary-color;
+  padding: 0 1rem;
+}
+.nav-link {
+  color: white;
+  padding: 1rem 1rem;
+  &:hover, &:active, &:focus {
+    color: $secondary-color;
+    background-color: white;
+  }
+ }

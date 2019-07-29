@@ -4,6 +4,7 @@ import { categorys, currencies } from '../../_models/consts';
 import { UtilsService } from 'src/app/_services/utils.service';
 import { FirebaseService } from 'src/app/_services/firebase.service';
 import Cost from 'src/app/_models/Cost';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -15,6 +16,7 @@ export class FormComponent implements OnInit {
   currencies = currencies;
   loading: boolean;
   @ViewChild('someInput', { read: ElementRef, static: true }) someInput: ElementRef;
+  private subscriptions: Subscription = new Subscription
 
   constructor(private utilsService: UtilsService, private fireService: FirebaseService) { }
 
@@ -41,6 +43,8 @@ export class FormComponent implements OnInit {
 
     this.configCurrency();
     this.updateDate();
+
+
   }
 
   async onSubmit() {
@@ -48,7 +52,11 @@ export class FormComponent implements OnInit {
     const res = await this.fireService.createCost(this.costForm.value as Cost);
     console.log(res);
     this.loading = false;
+    this.createForm();
+  }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   configCurrency() {
