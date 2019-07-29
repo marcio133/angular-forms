@@ -1,0 +1,28 @@
+
+$primary-color: #161151;
+$default-gray: #F6F6F6;
+$input-border: 	#DDDDDD;
+$secondary-color: #242156;
+@import 'card-line';
+@import 'fonts';
+@import 'form-group';
+@import 'list';
+@import 'modal';
+@import 'buttons';
+@import 'nav';
+
+
+
+$primary-background: #E9E9E9;
+
+* {
+  font-family: "Montserrat Alternates";
+}
+
+html, body {
+  background-color: $primary-background !important;
+}
+
+section {
+  margin-top: 30px;
+}

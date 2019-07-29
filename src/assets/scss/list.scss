@@ -1,0 +1,12 @@
+.select-list {
+  list-style-type: none;
+  padding-left: 0;
+  .select-list-item {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: $default-gray;
+    color: $primary-color;
+    padding: 10px 5px;
+    cursor: pointer;
+  }
+}
