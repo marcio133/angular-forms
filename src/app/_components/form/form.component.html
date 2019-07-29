@@ -4,7 +4,7 @@
       <div class="form-group col">
         <label class="label-form">Cost date</label>
         <input type="text" [dropSpecialCharacters]="false" (blur)="updateDate()" mask="00/00/0000"
-          formControlName="date" [ngClass]="{'form-control-highlight': costForm.get('date').value}"
+          [formControl]="costForm.get('date')" [ngClass]="{'form-control-highlight': costForm.get('date').value}"
           class="form-control">
       </div>
       <div class="form-group col">

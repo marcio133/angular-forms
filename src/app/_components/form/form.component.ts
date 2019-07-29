@@ -52,6 +52,7 @@ export class FormComponent implements OnInit {
     const res = await this.fireService.createCost(this.costForm.value as Cost);
     console.log(res);
     this.loading = false;
+    this.costForm.disable();
     this.createForm();
   }
 
