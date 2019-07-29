@@ -1,7 +1,8 @@
 <div class="form-row card-line" [formGroup]="parentForm">
   <div class="form-group col">
     <label class="label-form">{{labelName}}</label>
-    <input type="text" class="form-control" [formControlName]="control" [placeholder]="placeholder">
+    <input type="text" class="form-control" [ngClass]="{'form-control-highlight': parentForm.get(control).value}"
+      [formControlName]="control" [placeholder]="placeholder">
   </div>
   <div class="col-auto">
     <button type="button" (click)="reset()" class="reset-button"><i class="far fa-trash-alt"></i></button>

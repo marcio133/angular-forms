@@ -26,10 +26,10 @@ export class FormComponent implements OnInit {
 
   createForm() {
     this.costForm = new FormGroup({
-      date: new FormControl(null, Validators.required),
+      date: new FormControl(null, [Validators.required, Validators.minLength(10)]),
       millis: new FormControl(null, Validators.required),
       millisUTC: new FormControl(null, Validators.required),
-      value: new FormControl('00.0', [Validators.required, Validators.min(0.01)]),
+      value: new FormControl('', [Validators.required, Validators.min(0.01)]),
       currency: new FormControl('', Validators.required),
       category: new FormControl(null, Validators.required),
       description: new FormControl(''),
@@ -76,6 +76,10 @@ export class FormComponent implements OnInit {
 
   handleValue() {
     this.someInput.nativeElement.setSelectionRange(-1, -1);
+  }
+
+  getControlStatus(control) {
+    return this.costForm.get(control).valid;
   }
 
   get prefix() {

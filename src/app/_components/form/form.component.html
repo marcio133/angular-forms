@@ -4,12 +4,14 @@
       <div class="form-group col">
         <label class="label-form">Cost date</label>
         <input type="text" [dropSpecialCharacters]="false" (blur)="updateDate()" mask="00/00/0000"
-          formControlName="date" class="form-control">
+          formControlName="date" [ngClass]="{'form-control-highlight': costForm.get('date').value}"
+          class="form-control">
       </div>
       <div class="form-group col">
         <label class="label-form">Cost value</label>
         <input type="text" #someInput (keyup)="handleValue()" (click)="handleValue()" formControlName="value"
-          currencyMask [options]="{ prefix: prefix }" class=" form-control">
+          currencyMask [options]="{ prefix: prefix }"
+          [ngClass]="{'form-control-highlight': costForm.get('value').value}" class=" form-control">
       </div>
     </div>
     <app-select-input [parentForm]="costForm" [control]="'category'" [labelName]="'Cost category'"

@@ -18,7 +18,7 @@ export class ResetableInputComponent implements OnChanges {
   }
 
   reset() {
-    this.parentForm.get(this.control).reset();
+    this.parentForm.get(this.control).setValue('');
   }
 
 }

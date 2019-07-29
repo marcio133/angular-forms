@@ -25,4 +25,11 @@
   .form-control-select{
     cursor: pointer;
   }
+
+  .form-control-highlight {
+    border-color: $primary-color;
+    &:active, &:focus {
+      border-color: $primary-color;
+    }
+  }
 }
