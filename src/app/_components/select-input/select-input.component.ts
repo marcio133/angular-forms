@@ -17,7 +17,7 @@ export class SelectInputComponent implements OnInit, OnDestroy {
   @Input() placeholder?: String = 'Select a category';
 
   bsModalRef: BsModalRef;
-  private subscriptions: Subscription = new Subscription
+  subscriptions: Subscription = new Subscription
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {

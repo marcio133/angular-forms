@@ -9,4 +9,13 @@ describe('UtilsService', () => {
     const service: UtilsService = TestBed.get(UtilsService);
     expect(service).toBeTruthy();
   });
+
+  it('getFormatedDate should return 19/07/2019', () => {
+    const service: UtilsService = TestBed.get(UtilsService);
+
+    const date = new Date('07/19/2019');
+    const formatedDate = service.getFormatedDate(date);
+
+    expect(formatedDate).toBe('19/07/2019');
+  });
 });

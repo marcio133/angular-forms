@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask'
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -40,6 +40,7 @@ import { LoaderComponent } from './_components/loader/loader.component';
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     CurrencyMaskModule,
+    FormsModule,
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

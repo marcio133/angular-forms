@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
       millis: new FormControl(null, Validators.required),
       millisUTC: new FormControl(null, Validators.required),
       value: new FormControl('', [Validators.required, Validators.min(0.01)]),
-      currency: new FormControl('', Validators.required),
+      currency: new FormControl(null, Validators.required),
       category: new FormControl(null, Validators.required),
       description: new FormControl(''),
       client: new FormControl(''),
@@ -43,14 +43,11 @@ export class FormComponent implements OnInit {
 
     this.configCurrency();
     this.updateDate();
-
-
   }
 
   async onSubmit() {
     this.loading = true;
     const res = await this.fireService.createCost(this.costForm.value as Cost);
-    console.log(res);
     this.loading = false;
     this.costForm.disable();
     this.createForm();
