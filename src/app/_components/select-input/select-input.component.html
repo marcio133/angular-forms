@@ -1,7 +1,7 @@
 <div class="form-row card-line" [formGroup]="parentForm">
   <div class="form-group col">
     <label class="label-form">{{labelName}}</label>
-    <input type="text" class="form-control form-control-select"
+    <input type="text" (focus)="openOptions($event)" class="form-control form-control-select"
       [ngClass]="{'form-control-highlight': parentForm.get(control).value}" [formControlName]="control"
       [placeholder]="placeholder" (click)="openOptions($event)">
   </div>
