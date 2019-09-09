@@ -5,8 +5,11 @@
 .nav-link {
   color: white;
   padding: 1rem 1rem;
-  &:hover, &:active, &:focus {
+  transition: all ease 0.3s;
+  &:hover,
+  &:active,
+  &:focus {
     color: $secondary-color;
     background-color: white;
   }
- }
+}
