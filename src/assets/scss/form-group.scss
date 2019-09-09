@@ -1,20 +1,19 @@
-
-.form-group{
+.form-group {
   margin-bottom: 0;
   .label-form {
     font-family: "Montserrat Alternates";
     font-weight: 600;
     color: $primary-color;
     margin-bottom: 0;
-    margin-left: 10px;
   }
   .form-control {
     background-color: $default-gray;
     color: $primary-color;
     border-radius: 0;
     border-color: $default-gray;
-        height: calc(1.5em + .75rem);
-    &:active, &:focus {
+    height: calc(1.5em + 0.75rem);
+    &:active,
+    &:focus {
       background-color: $default-gray;
       color: $primary-color;
       border: 1px solid $input-border;
@@ -22,13 +21,14 @@
       box-shadow: none;
     }
   }
-  .form-control-select{
+  .form-control-select {
     cursor: pointer;
   }
 
   .form-control-highlight {
     border-color: $primary-color;
-    &:active, &:focus {
+    &:active,
+    &:focus {
       border-color: $primary-color;
     }
   }
