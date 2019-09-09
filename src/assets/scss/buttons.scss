@@ -5,6 +5,8 @@ $button-radius: 10px;
   border: 2px solid white;
   background-color: $button-color;
   color: white;
+  min-width: 200px;
+  transition: all ease 0.3s;
   &:disabled,
   &:active,
   &:focus,
@@ -19,6 +21,9 @@ $button-radius: 10px;
     color: $button-color;
     background: white;
     border-color: $button-color;
+  }
+  &:disabled {
+    opacity: 0.35;
   }
 }
 

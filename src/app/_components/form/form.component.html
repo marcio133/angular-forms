@@ -3,28 +3,71 @@
     <div class="form-row card-line">
       <div class="form-group col">
         <label class="label-form">Cost date</label>
-        <input type="text" [dropSpecialCharacters]="false" (blur)="updateDate()" mask="00/00/0000"
-          [formControl]="costForm.get('date')" [ngClass]="{'form-control-highlight': costForm.get('date').value}"
-          class="form-control">
+        <input
+          type="text"
+          [dropSpecialCharacters]="false"
+          (blur)="updateDate()"
+          mask="00/00/0000"
+          [formControl]="costForm.get('date')"
+          [ngClass]="{ 'form-control-highlight': costForm.get('date').value }"
+          class="form-control"
+        />
       </div>
       <div class="form-group col">
         <label class="label-form">Cost value</label>
-        <input type="text" #someInput (keyup)="handleValue()" (click)="handleValue()" formControlName="value"
-          currencyMask [options]="{ prefix: prefix }"
-          [ngClass]="{'form-control-highlight': costForm.get('value').value}" class=" form-control">
+        <input
+          type="text"
+          #someInput
+          (keyup)="handleValue()"
+          (click)="handleValue()"
+          formControlName="value"
+          currencyMask
+          [options]="{ prefix: prefix }"
+          [ngClass]="{ 'form-control-highlight': costForm.get('value').value }"
+          class=" form-control"
+        />
       </div>
     </div>
-    <app-select-input [parentForm]="costForm" [control]="'category'" [labelName]="'Cost category'"
-      [options]="categorys"></app-select-input>
-    <app-resetable-input [parentForm]="costForm" [control]="'description'" [labelName]="'Description of cost'">
+    <app-select-input
+      [parentForm]="costForm"
+      [control]="'category'"
+      [labelName]="'Cost category'"
+      [options]="categorys"
+    ></app-select-input>
+    <app-resetable-input
+      [parentForm]="costForm"
+      [control]="'description'"
+      [labelName]="'Description of cost'"
+    >
     </app-resetable-input>
-    <app-resetable-input [parentForm]="costForm" [control]="'client'" [labelName]="'Client'"></app-resetable-input>
-    <app-resetable-input [parentForm]="costForm" [control]="'job'" [labelName]="'Job'"></app-resetable-input>
-    <app-resetable-input [parentForm]="costForm" [control]="'notes'" [labelName]="'Notes'"></app-resetable-input>
+    <app-resetable-input
+      [parentForm]="costForm"
+      [control]="'client'"
+      [labelName]="'Client'"
+    ></app-resetable-input>
+    <app-resetable-input
+      [parentForm]="costForm"
+      [control]="'job'"
+      [labelName]="'Job'"
+    ></app-resetable-input>
+    <app-resetable-input
+      [parentForm]="costForm"
+      [control]="'notes'"
+      [labelName]="'Notes'"
+    ></app-resetable-input>
     <div class="form-row">
-      <div class="col text-center text-sm-right">
-        <button type="submit" class="btn btn-primary" [disabled]="costForm.invalid">
-          <app-loader *ngIf="loading" [width]="'20'" [height]="'20'"></app-loader> {{loading ? 'saving...' : 'save'}}
+      <div class="col text-center text-sm-left pf-0">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="costForm.invalid"
+        >
+          <app-loader
+            *ngIf="loading"
+            [width]="'20'"
+            [height]="'20'"
+          ></app-loader>
+          {{ loading ? "saving..." : "save" }}
         </button>
       </div>
     </div>
