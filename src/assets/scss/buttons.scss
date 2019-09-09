@@ -1,11 +1,14 @@
-$button-color: #4AC2FF;
+$button-color: #006992;
 $button-radius: 10px;
 .btn-primary {
   border-radius: $button-radius;
   border: 2px solid white;
   background-color: $button-color;
   color: white;
-  &:disabled, &:active, &:focus, &:not(:disabled):not(.disabled):active{
+  &:disabled,
+  &:active,
+  &:focus,
+  &:not(:disabled):not(.disabled):active {
     border-radius: $button-radius;
     border: 2px solid white;
     background-color: $button-color;
